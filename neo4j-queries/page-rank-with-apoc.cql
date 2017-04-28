@@ -9,6 +9,3 @@ WITH collect(node) AS nodes
 CALL apoc.algo.pageRankWithConfig(nodes, {iterations: 100, types: 'APPEARS_IN|NEXT'}) YIELD node, score
 RETURN node, score
 ORDER BY score DESC LIMIT 1000
-
-WITH (node)-[:APPEARS_IN]->(:Sentence) AS a, score
-RETURN a, score
